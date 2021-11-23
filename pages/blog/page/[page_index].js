@@ -3,6 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 import Layout from "../../../components/Layout";
 import Post from "../../../components/Post";
+import { POSTS_PER_PAGE } from "../../../config";
 
 export default function BlogPage({ posts }) {
   return (
@@ -15,6 +16,27 @@ export default function BlogPage({ posts }) {
       </div>
     </Layout>
   );
+}
+
+export async function getStaticPaths() {
+  const files = fs.readdirSync(path.join("posts"));
+
+  const numPages = Math.ceil(files.length / POSTS_PER_PAGE);
+
+  let paths = [];
+
+  for (let i = 1; i <= numPages; i++) {
+    paths.push({
+      params: { page_index: i.toString() },
+    });
+  }
+
+  console.log("paths");
+
+  return {
+    paths,
+    fallback: false,
+  };
 }
 
 export async function getStaticProps() {
