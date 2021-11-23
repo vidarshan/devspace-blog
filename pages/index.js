@@ -7,7 +7,6 @@ import Link from "next/link";
 import { sortByDate } from "../utils/index";
 
 export default function HomePage({ posts }) {
-  console.log(posts);
   return (
     <Layout>
       <h1 className="text-5xl border-b-4 p-5">Latest Posts</h1>
