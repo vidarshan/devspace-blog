@@ -9,7 +9,7 @@ import { getPosts } from "@/lib/posts";
 export default function CategoryBlogPage({ posts, categoryName, categories }) {
   return (
     <Layout>
-      <h1 className="text-5xl border-b-4 p-5">Posts in ${categoryName}</h1>
+      <h1 className="text-5xl border-b-4 p-5">Posts in {categoryName}</h1>
       <div className="flex justify-between">
         <div className="w-3/4 mr-10">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
